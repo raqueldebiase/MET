@@ -1,7 +1,6 @@
 // components/organisms/TemporaryExhibitions.tsx
 
 import React from 'react';
-import { ButtonGoToExpo } from '../atoms/ButtonGoToExpo';
 import { Exhibition01 } from '../molecules/Exhibition01';
 import { Exhibition02 } from '../molecules/Exhibition02';
 

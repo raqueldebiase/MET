@@ -1,6 +1,6 @@
 // components/molecules/DutchArtExhibition.tsx
 
-import { useRouter } from 'next/router'; // Importar useRouter
+
 import { ButtonGoToExpo } from '../atoms/ButtonGoToExpo';
 
 export const Exhibition01: React.FC = () => {
