@@ -29,7 +29,7 @@ export const Exhibition02: React.FC = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque.
         </p>
         <div className="text-end">
-          <ButtonGoToExpo href="/dutch-artworks" />
+          <ButtonGoToExpo href="/exhibitions/expo2" />
         </div>
         
       </div>

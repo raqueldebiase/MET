@@ -16,7 +16,8 @@ const config: Config = {
       backgroundImage: {
         'hero-pattern': "url('/img/bg/hero.png')",
         'dutch-exhibition': "url('/img/bg/theAnnunciation.jpg')",
-        'manuscript-exhibition': "url('/img/bg/capitalLetter.jpg')"
+        'manuscript-exhibition': "url('/img/bg/capitalLetter.jpg')",
+        'expo-1': "url('/img/bg/bg-expo1.jpg')",
       },
       height: {
         '200': '230vh',
