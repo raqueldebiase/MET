@@ -6,7 +6,7 @@ import { useArtworkById } from '@/app/hooks/useArtworkById';
 
 const AnnunciationExpo: React.FC = () => {
   // IDs das obras que você deseja buscar
-  const artworkIds = [459055, 437490]; // Substitua com IDs reais
+  const artworkIds = [459055, 437490, 347404, 436096, 435899, 441233, 436791, 466182, 468106, 466256, 471086, 459062, 436476, 364797, 336173, 364735, 466685, 464404    ]; // Substitua com IDs reais
 
   // Utilize o hook para buscar as obras pelos IDs
   const { data, loading, error } = useArtworkById(artworkIds);

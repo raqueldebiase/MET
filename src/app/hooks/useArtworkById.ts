@@ -67,7 +67,7 @@ export const useArtworkById = (ids: number[]) => {
         const filteredArtworks = artworksData
           .filter((art) => art !== null)
           .filter((art) => art!.imageUrl && art!.imageUrl.startsWith('http'))
-          .slice(0, 10); // Limitar a 10 obras
+          .slice(0, 12); // Limitar a 10 obras
 
         setData(filteredArtworks as Artwork[]);
       } catch (error) {
