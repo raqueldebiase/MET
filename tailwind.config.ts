@@ -18,6 +18,7 @@ const config: Config = {
         'dutch-exhibition': "url('/img/bg/theAnnunciation.jpg')",
         'manuscript-exhibition': "url('/img/bg/capitalLetter.jpg')",
         'expo-1': "url('/img/bg/bg-expo1.jpg')",
+        'expo-2': "url('/img/bg/bg-expo2.jpg')"
       },
       height: {
         '200': '230vh',
