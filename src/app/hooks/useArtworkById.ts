@@ -31,34 +31,38 @@ export const useArtworkByAccessionNumber = (accessionNumbers: string[]) => {
       setError(null);
 
       try {
-        // Buscar IDs dos objetos com base no número de acesso
-        const searchResponses = await Promise.all(
+        const artworksData = await Promise.all(
           accessionNumbers.map(async (accessionNumber) => {
             try {
+              // Buscar o objectID usando o accessionNumber
               const searchResponse = await axios.get(
                 `https://collectionapi.metmuseum.org/public/collection/v1/search?accessionNumber=${accessionNumber}`
               );
-              const objectId = searchResponse.data.objectIDs ? searchResponse.data.objectIDs[0] : null;
+              
+              const objectID = searchResponse.data.objectIDs?.[0]; // Pegue o primeiro objectID encontrado
 
-              if (objectId) {
-                const response = await axios.get(
-                  `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId}`
-                );
-                const art = response.data;
-                return {
-                  accessionNumber: art.accessionNumber,
-                  title: art.title,
-                  imageUrl: art.primaryImage,
-                  accessionYear: art.accessionYear,
-                  isPublicDomain: art.isPublicDomain,
-                  artistDisplayName: art.artistDisplayName,
-                  dimensions: art.dimensions,
-                  country: art.country,
-                  repository: art.repository,
-                  medium: art.medium,
-                };
+              if (!objectID) {
+                return null; // Se não encontrar o objectID, retornar null
               }
-              return null;
+
+              // Buscar detalhes da obra usando o objectID
+              const detailsResponse = await axios.get(
+                `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`
+              );
+
+              const art = detailsResponse.data;
+              return {
+                accessionNumber: art.accessionNumber,
+                title: art.title,
+                imageUrl: art.primaryImage,
+                accessionYear: art.accessionYear,
+                isPublicDomain: art.isPublicDomain,
+                artistDisplayName: art.artistDisplayName,
+                dimensions: art.dimensions,
+                country: art.country,
+                repository: art.repository,
+                medium: art.medium,
+              };
             } catch (error) {
               console.error(`Erro ao buscar detalhes para o número de acesso ${accessionNumber}:`, error);
               return null;
@@ -67,7 +71,7 @@ export const useArtworkByAccessionNumber = (accessionNumbers: string[]) => {
         );
 
         // Filtrar apenas as obras válidas com URLs de imagem
-        const filteredArtworks = searchResponses
+        const filteredArtworks = artworksData
           .filter((art) => art !== null)
           .filter((art) => art!.imageUrl && art!.imageUrl.startsWith('http'));
 

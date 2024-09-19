@@ -8,7 +8,7 @@ import { useArtworkByAccessionNumber } from '@/app/hooks/useArtworkById';
 
 const AnnunciationExpo: React.FC = () => {
   // Números de acesso das obras que você deseja buscar
-  const artworkAccessionNumbers = ["1975.1.113",]; // Substitua com números de acesso reais
+  const artworkAccessionNumbers = ["1975.1.113", "1981.2.3", "1990.5.6"]; // Substitua com números de acesso reais
 
   // Utilize o hook para buscar as obras pelos números de acesso
   const { data, loading, error } = useArtworkByAccessionNumber(artworkAccessionNumbers);
