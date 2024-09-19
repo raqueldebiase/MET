@@ -12,7 +12,6 @@ export interface Artwork {
   isPublicDomain?: boolean;
   artistDisplayName: string;
   dimensions: string;
-  country: string;
   repository: string;
   medium: string;
 }
@@ -52,7 +51,6 @@ export const useArtworkById = (ids: number[]) => {
                 isPublicDomain: art.isPublicDomain,
                 artistDisplayName: art.artistDisplayName,
                 dimensions: art.dimensions,
-                country: art.country,
                 repository: art.repository,
                 medium: art.medium,
               };

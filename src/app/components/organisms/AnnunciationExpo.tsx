@@ -24,7 +24,7 @@ const AnnunciationExpo: React.FC = () => {
 
   return (
     <div className=" mx-auto p-8 mb-24">
-      <h1 className="text-4xl font-bold mb-8">Artwork Gallery</h1>
+      <h2 className="text-4xl font-bold mb-8">Artwork Gallery</h2>
       {loading && <p>Carregando obras...</p>}
       {error && <p className="text-red-500">{error}</p>}
       {!loading && !error && data.length === 0 && <p>Nenhuma obra encontrada.</p>}
