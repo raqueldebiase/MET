@@ -22,7 +22,7 @@ export const useArtworkById = (ids: number[]) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const hasFetched = useRef(false); // garantir que a requisição seja feita apenas uma vez
+  const hasFetched = useRef(false); 
 
   useEffect(() => {
     if (hasFetched.current) return; // Evita a execução se já foi feito o fetch

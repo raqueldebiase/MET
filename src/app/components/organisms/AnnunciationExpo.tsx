@@ -35,7 +35,7 @@ const AnnunciationExpo: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto mb-24">
+    <div className="mx-auto">
       <h2 className="text-4xl p-8 font-bold mb-8">Artwork Gallery</h2>
       {loading && <p>Carregando obras...</p>}
       {error && <p className="text-red-500">{error}</p>}
@@ -54,16 +54,7 @@ const AnnunciationExpo: React.FC = () => {
           <div ref={detailsRef} className="mt-48 bg-gray-50 ">
             {selectedArtwork && (
               <section className='p-8'>
-                <div className='flex'>
-                  <div className="tec-card w-1/2">
-                    <h3 className="text-2xl my-4">{selectedArtwork.title}</h3>
-                    <p className="text-lg mb-1"><strong>Artist:</strong> {selectedArtwork.artistDisplayName || 'Unknown'}</p>
-                    <p className="text-md mb-1"><strong>Year:</strong> {selectedArtwork.objectDate || 'N/A'}</p>
-                    <p className="text-md mb-1"><strong>Medium:</strong> {selectedArtwork.medium || 'N/A'}</p>
-                    <p className="text-md mb-1"><strong>Dimensions:</strong> {selectedArtwork.dimensions || 'N/A'}</p>
-                    <p className="text-lg mb-2">{selectedArtwork.repository || 'N/A'}</p>
-                  </div>
-                  <div className="more-info w-1/2">
+                
                     <div className="mt-4">
                       <Image
                         src={selectedArtwork.imageUrl}
@@ -74,11 +65,6 @@ const AnnunciationExpo: React.FC = () => {
                         quality={100}
                       />
                     </div>
-                  </div>
-                  
-                </div>
-                
-
               </section>
             )}
           </div>
