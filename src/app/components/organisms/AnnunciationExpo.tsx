@@ -1,17 +1,15 @@
-// src/pages/dutch-artworks.tsx
-
 'use client';
 
 import React from 'react';
 import Image from 'next/image'; 
-import { useArtworkByAccessionNumber } from '@/app/hooks/useArtworkById';
+import { useArtworkById } from '@/app/hooks/useArtworkById';
 
 const AnnunciationExpo: React.FC = () => {
-  // Números de acesso das obras que você deseja buscar
-  const artworkAccessionNumbers = ["1975.1.113", "1981.2.3", "1990.5.6"]; // Substitua com números de acesso reais
+  // IDs das obras que você deseja buscar
+  const artworkIds = [459055, 437490]; // Substitua com IDs reais
 
-  // Utilize o hook para buscar as obras pelos números de acesso
-  const { data, loading, error } = useArtworkByAccessionNumber(artworkAccessionNumbers);
+  // Utilize o hook para buscar as obras pelos IDs
+  const { data, loading, error } = useArtworkById(artworkIds);
 
   return (
     <div className="container mx-auto py-10">
@@ -21,7 +19,7 @@ const AnnunciationExpo: React.FC = () => {
       {!loading && !error && data.length === 0 && <p>Nenhuma obra encontrada.</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {!loading && !error && data.map((art) => (
-          <div key={art.accessionNumber} className="border rounded-lg shadow-lg p-4">
+          <div key={art.id} className="border rounded-lg shadow-lg p-4">
             <Image 
               src={art.imageUrl} 
               alt={art.title} 
