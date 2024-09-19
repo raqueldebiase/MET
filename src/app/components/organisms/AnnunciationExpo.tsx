@@ -18,12 +18,12 @@ const AnnunciationExpo: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 
   return (
-    <div className="container mx-auto py-10">
+    <div className=" mx-auto p-8 mb-24">
       <h1 className="text-4xl font-bold mb-8">Artwork Gallery</h1>
       {loading && <p>Carregando obras...</p>}
       {error && <p className="text-red-500">{error}</p>}
