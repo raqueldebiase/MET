@@ -1,3 +1,5 @@
+import AnnunciationExpo from "@/app/components/organisms/AnnunciationExpo";
+
 const Expo1Page = () => {
   const exhibition = {
     title: 'The Annunciations',
@@ -37,6 +39,7 @@ const Expo1Page = () => {
           </p>
         </div>
       </div>
+      <AnnunciationExpo />
     </section>
   );
 };

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// Interface para definir o tipo da obra de arte
 interface Artwork {
   id: number;
   title: string;
@@ -17,7 +16,6 @@ interface Artwork {
   medium: string;
 }
 
-// Hook para buscar obras de arte com base no título
 export const useArtworkByTitle = (title: string) => {
   const [data, setData] = useState<Artwork[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,20 +27,17 @@ export const useArtworkByTitle = (title: string) => {
       setError(null);
 
       try {
-        // Buscar IDs de obras com o título específico
         const searchResponse = await axios.get(
-          `https://collectionapi.metmuseum.org/public/collection/v1/search?q=annunciation&hasImages=true`
+          `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${encodeURIComponent(title)}&hasImages=true`
         );        
         const objectIds: number[] = searchResponse.data.objectIDs || [];
 
         if (objectIds.length === 0) {
-          // Nenhuma obra encontrada com o título especificado
           setData([]);
           setLoading(false);
           return;
         }
 
-        // Buscar detalhes das obras usando os IDs
         const artworksData = await Promise.all(
           objectIds.map(async (id: number) => {
             try {
@@ -69,7 +64,6 @@ export const useArtworkByTitle = (title: string) => {
           })
         );
 
-        // Filtrar apenas as obras válidas com URLs de imagem
         const filteredArtworks = artworksData
           .filter((art) => art !== null)
           .filter((art) => art!.imageUrl && art!.imageUrl.startsWith('http'));
@@ -83,7 +77,6 @@ export const useArtworkByTitle = (title: string) => {
       }
     };
 
-    // Executa a busca apenas se um título for fornecido
     if (title) {
       fetchArtworks();
     }
