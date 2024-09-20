@@ -24,12 +24,9 @@ const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
         quality={100}
         className="rounded-sm mb-4"
       />
-      <h3 className="text-xl mb-6">{artwork.artistDisplayName || 'Unknown'}</h3>
-      <p className="text-sm text-gray-500">{artwork.title}</p>
-      <p className="text-sm text-gray-500">{artwork.objectDate || 'N/A'}</p>
-      <p className="text-sm text-gray-500">{artwork.medium || 'N/A'}</p>
-      <p className="text-sm text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p>
-      <p className="text-sm text-gray-500">{artwork.repository || 'N/A'}</p>
+      
+      <h3 className="text-xl mb-2">{artwork.title}</h3>
+      <p className="text-md mb-6">{artwork.artistDisplayName || 'Unknown'}</p>
     </div>
   );
 };

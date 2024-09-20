@@ -11,6 +11,8 @@ import Image from 'next/image';
 import NextArrow from '../atoms/NextArrow';
 import PrevArrow from '../atoms/PrevArrow';
 
+
+
 const CapitalLetters: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
   const artworkIds = [472539, 811798, 469047, 479712, 467520, 468974, 468476, 469045, 32837, 463543, 466773, 469048, 467521, 469827, 479379, 468975, 469826, 467526, 466734, 461353, 476336, 466703, 466241, 467419, 466200, 466632, 469985, 476564, 461298, 910582, 466086, 463602, 468977, 32947, 467681, 472538, 479379, 472539, 474236];
@@ -18,6 +20,7 @@ const CapitalLetters: React.FC = () => {
   const { data, loading, error } = useArtworkById(artworkIds);
   const sliderRef = useRef<Slider | null>(null);
   const detailsRef = useRef<HTMLDivElement | null>(null);
+
 
   const settings = {
     dots: false,
@@ -73,26 +76,45 @@ const CapitalLetters: React.FC = () => {
             <NextArrow onClick={goToNext} />
           </div>
 
-          <div ref={detailsRef} className="mt-48 bg-gray-50">
+          <div ref={detailsRef} className="mt-8 py-8 bg-gray-50">
             {selectedArtwork && (
               <section className="p-8">
-                <div className="mt-4">
-                  <Image
-                    src={selectedArtwork.imageUrl}
-                    alt={selectedArtwork.title}
-                    width={600}
-                    height={400}
-                    layout="intrinsic"
-                    quality={100}
-                  />
+                <div className="mt-4 flex justify-center">
+                  <div className='w-1/2 flex justify-center'>
+                    <Image
+                      src={selectedArtwork.imageUrl}
+                      alt={selectedArtwork.title}
+                      width={600}
+                      height={400}
+                      layout="intrinsic"
+                      quality={100}
+                    />
+                  </div>
+                  <div className='w-1/2 grid content-end'>
+                    <div className='mb-8'>
+                      <h3 className="text-xl mb-2">{selectedArtwork.title}</h3>
+                      <p className="text-md mb-6">{selectedArtwork.artistDisplayName || 'Unknown'}</p>
+                    </div>
+                    <div>
+                      <p className="text-md text-gray-500">{selectedArtwork.objectDate || 'N/A'}</p>
+                      <p className="text-md text-gray-500">{selectedArtwork.city || 'N/A'}</p> 
+                      <p className="text-md text-gray-500">{selectedArtwork.medium || 'N/A'}</p>
+                      <p className="text-md text-gray-500">Dimensions: {selectedArtwork.dimensions || 'N/A'}</p>
+                      <p className="text-md text-gray-500">{selectedArtwork.repository || 'N/A'}</p>
+                      <p className="text-md text-gray-500">{selectedArtwork.isPublicDomain || 'N/A'}</p>
+                          
+                    </div>
+                        
+                  </div>
                 </div>
               </section>
             )}
           </div>
-        </>
-      )}
-    </div>
-  );
-};
+
+                  </>
+                )}
+              </div>
+            );
+          };
 
 export default CapitalLetters;

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 
+
 export interface Artwork {
   id: number;
   title: string;
@@ -14,6 +15,9 @@ export interface Artwork {
   dimensions: string;
   repository: string;
   medium: string;
+  geographyType: string;
+  linkResource: string;
+  city: string
 }
 
 
@@ -53,6 +57,9 @@ export const useArtworkById = (ids: number[]) => {
                 dimensions: art.dimensions,
                 repository: art.repository,
                 medium: art.medium,
+                geographyType: art.city,
+                linkResource: art.linkResource,
+                city: art.city,
               };
             } catch (error) {
               console.error(`Erro ao buscar detalhes para o ID ${id}:`, error);
