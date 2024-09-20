@@ -12,7 +12,7 @@ interface ExpoCardProps {
 const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
   return (
     <div 
-      className="p-8 mb-16 cursor-pointer" 
+      className="p-8 cursor-pointer" 
       onClick={onClick} // Chama a função onClick ao clicar
     >
       <Image
