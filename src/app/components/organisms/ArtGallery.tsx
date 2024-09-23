@@ -3,11 +3,8 @@ import React from 'react';
 import { ArtCard } from '../molecules/ArtCard';
 import { useArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
 
-interface ArtGalleryProps {
-  onCardClick: (id: number) => void;
-}
 
-export const ArtGallery: React.FC<ArtGalleryProps> = ({}) => {
+export const ArtGallery: React.FC = ({}) => {
   const { artworks, loading } = useArtworkByHighlight();
 
   return (

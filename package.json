@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "framer-motion": "^11.5.4",
+    "framer-motion": "^11.5.6",
     "next": "^14.2.12",
     "photo-sphere-viewer": "^4.8.1",
     "photoswipe": "^5.4.4",

@@ -33,7 +33,7 @@ export const ArtCard: React.FC<ArtCardProps> = ({ artwork}) => {
         className="w-full h-48 object-cover"
       />
       <div className="py-4">
-        <h3 className="text-xl">{title}</h3>
+        <h3 className="text-xl font-extralight w-2/3">{title}</h3>
         {artistDisplayName && <p className="text-md text-gray-400">{artistDisplayName}</p>}
 
         {showDetails && (

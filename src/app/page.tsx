@@ -34,10 +34,6 @@ export default function Page() {
     };
   }, [scrollY]);
 
-  const handleCardClick = (id: number) => {
-    console.log(`Obra de ID ${id} clicada!`);
-  };
-
   return (
     <>
       <section
@@ -60,8 +56,7 @@ export default function Page() {
 
       <Gallery
         title="Galeria de Obras de Arte do MET"
-        description="Explore uma coleção de pinturas do Metropolitan Museum."
-        onCardClick={handleCardClick}
+        description="Explore uma coleção de pinturas do Metropolitan Museum." 
       />
 
 
