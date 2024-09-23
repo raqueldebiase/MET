@@ -39,7 +39,7 @@ export default function Page() {
       <section
         className="relative text-gray-100 bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/img/bg/hero.png)', // Ajuste o caminho da imagem
+          backgroundImage: 'url(/img/bg/hero.png)',
           backgroundSize: 'cover',
           height: sectionHeight,
           transition: 'height 0.5s ease-out',

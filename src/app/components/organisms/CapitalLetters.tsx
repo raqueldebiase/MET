@@ -10,6 +10,7 @@ import { Artwork } from '@/app/hooks/useArtworkById';
 import Image from 'next/image';
 import NextArrow from '../atoms/NextArrow';
 import PrevArrow from '../atoms/PrevArrow';
+import LoadingSpinner from '../atoms/LoadingSpinner';
 
 
 
@@ -54,7 +55,11 @@ const CapitalLetters: React.FC = () => {
   return (
     <div className="mx-auto">
       <h2 className="text-4xl p-8 font-bold mb-4">Artwork Gallery</h2>
-      {loading && <p>Carregando obras...</p>}
+      {loading && (
+        <div className="flex justify-center items-center h-64">
+          <LoadingSpinner />
+        </div>
+      )}
       {error && <p className="text-red-500">{error}</p>}
       {!loading && !error && data.length === 0 && <p>Nenhuma obra encontrada.</p>}
       {!loading && !error && data.length > 0 && (
