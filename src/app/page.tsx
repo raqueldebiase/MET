@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Hero } from './components/organisms/Hero';
 import { SubHero } from './components/organisms/SubHero';
-import { Gallery } from './components/organisms/Gallery'; // Importa o novo componente Gallery
+import { Gallery } from './components/organisms/Gallery';
 import { TemporaryExhibitions } from './components/organisms/TemporaryExhibitions';
 import { About } from './components/organisms/About';
 
@@ -56,15 +56,20 @@ export default function Page() {
           <SubHero />
         </div>
       </section>
+
+
       <Gallery
         title="Galeria de Obras de Arte do MET"
         description="Explore uma coleção de pinturas do Metropolitan Museum."
         onCardClick={handleCardClick}
       />
-      <TemporaryExhibitions 
+
+
+      <TemporaryExhibitions
         title="Temporary Exhibitions"
         description="Explore uma coleção de pinturas do Metropolitan Museum."
       />
+
       <About 
         title="About this project"
       />
