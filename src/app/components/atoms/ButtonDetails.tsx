@@ -8,8 +8,8 @@ interface ButtonDetailsProps {
 
 export const ButtonDetails: React.FC<ButtonDetailsProps> = ({ onClick, label }) => {
   return (
-    <button onClick={onClick} className="px-4 py-2 bg-blue-500 text-white rounded">
-      {label || 'More Details'} {/* Exibe o texto passado ou o padrão "More Details" */}
+    <button onClick={onClick} className="px-4 py-2 text-sm border text-gray-400 rounded-full">
+      {label || 'More Details'} 
     </button>
   );
 };

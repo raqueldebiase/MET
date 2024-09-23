@@ -8,6 +8,7 @@ import { ButtonDetails } from '../atoms/ButtonDetails';
 import { ButtonExpand } from '../atoms/ButtonExpand';
 import { ArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
 
+
 interface ArtCardProps {
   artwork: ArtworkByHighlight; // Recebe o objeto da obra de arte
 }
@@ -44,8 +45,8 @@ export const ArtCard: React.FC<ArtCardProps> = ({ artwork}) => {
         </div>
         )}
         
-        <div className="my-4">
-          <ButtonDetails onClick={handleDetailsToggle} label={showDetails ? '-' : 'More Details'} />
+        <div className="my-4 flex">
+          <ButtonDetails onClick={handleDetailsToggle} label={showDetails ? 'Less Details' : 'More Details'} />
           <ButtonExpand imageUrl={imageUrl || fallbackImageUrl} />
         </div>
       </div>
