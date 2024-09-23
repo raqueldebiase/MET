@@ -21,14 +21,14 @@ export const Exhibition02: React.FC = () => {
       p-24
       "
     >
-      <div className="max-w-96">
+      <div className=" w-1/3 backdrop-blur-md bg-white/30 rounded-lg p-8">
         <div className="info-expo mb-8">
-          <h2 className='text-4xl font-bold'>MANUSCRITOS MEDIEVAIS</h2>
+          <h2 className='text-4xl text-gray-700 font-light tracking-wider'>Capital Letters</h2>
         </div>
-        <p className="text-white text-1xl mb-8">
+        <p className="text-gray-900 text-1xl mb-8">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque.
         </p>
-        <div className="text-end">
+        <div className="flex justify-end">
           <ButtonGoToExpo href="/exhibitions/expo2" />
         </div>
         
