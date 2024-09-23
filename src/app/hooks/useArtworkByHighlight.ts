@@ -53,8 +53,6 @@ export const useArtworkByHighlight = () => {
                   `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
                 );
                 const data = response.data;
-
-                
                 return {
                   id: data.objectID,
                   title: data.title,
@@ -66,7 +64,7 @@ export const useArtworkByHighlight = () => {
                   repository: data.repository,
                   medium: data.medium,
                   geographyType: data.geographyType,
-                  linkResource: data.objectURL,
+                  linkResource: data.linkResource,
                   city: data.city,
                 } as ArtworkByHighlight;
               } catch (error) {

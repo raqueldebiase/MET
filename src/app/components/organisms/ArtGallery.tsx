@@ -4,7 +4,7 @@
 import React from 'react';
 import { ArtCard } from '../molecules/ArtCard';
 import { useArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
-import LoadingSpinner from '../atoms/LoadingSpinner'; // Ajuste o caminho conforme necessário
+import LoadingSpinner from '../atoms/LoadingSpinner'; 
 
 export const ArtGallery: React.FC = () => {
   const { artworks, loading } = useArtworkByHighlight();
@@ -19,7 +19,7 @@ export const ArtGallery: React.FC = () => {
         artworks.map((art) => (
           <ArtCard
             key={art.id}
-            artwork={art} // Passa o objeto completo da obra
+            artwork={art}
           />
         ))
       )}

@@ -97,9 +97,9 @@ const AnnunciationExpo: React.FC = () => {
                       <p className="text-md mb-6">{selectedArtwork.title || 'Unknown'}</p>
                     </div>
                     <div>
-                      <p className="text-md text-gray-500">{selectedArtwork.objectDate || 'N/A'}</p>
-                      <p className="text-md text-gray-500">{selectedArtwork.city || 'N/A'}</p>
-                      <p className="text-md text-gray-500">{selectedArtwork.medium || 'N/A'}</p>
+                      <p className="text-md text-gray-500">Date: {selectedArtwork.objectDate || 'N/A'}</p>
+                      <p className="text-md text-gray-500">Local: {selectedArtwork.city || 'N/A'}</p>
+                      <p className="text-md text-gray-500">Medium: {selectedArtwork.medium || 'N/A'}</p>
                       <p className="text-md text-gray-500">Dimensions: {selectedArtwork.dimensions || 'N/A'}</p>
                       <p className="text-md text-gray-500">{selectedArtwork.repository || 'N/A'}</p>
                       <p className="text-md text-gray-500">{selectedArtwork.isPublicDomain || 'N/A'}</p>
