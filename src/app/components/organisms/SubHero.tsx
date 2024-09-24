@@ -23,7 +23,7 @@ export const SubHero: React.FC = () => {
   };
 
   return (
-    <section className="h-screen flex flex-wrap justify-end items-baseline pb-2">
+    <section className="h-full flex flex-wrap justify-end gap-72 items-center pb-2">
       <div className="">
         <div className="backdrop-blur-md bg-white/30 rounded-lg p-8 w-2/4">
           <h2 className="text-2xl mb-8">Título da Sessão</h2>
