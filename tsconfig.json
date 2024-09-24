@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "paths": {  
+    "paths": {
       "@/*": ["./src/*"]
     },
     "plugins": [
@@ -21,7 +21,8 @@
         "name": "next"
       }
     ],
-    "types": ["node"]  // Adicione esta linha
+    "types": ["node"],  // Confirmação de inclusão dos tipos do Node.js
+    "typeRoots": ["./node_modules/@types"]  // Diretório onde os tipos estão localizados
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

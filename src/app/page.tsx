@@ -57,16 +57,19 @@ export default function Page() {
       <Gallery
         title="Galeria de Obras de Arte do MET"
         description="Explore uma coleção de pinturas do Metropolitan Museum." 
+        id="gallery"
       />
 
 
       <TemporaryExhibitions
         title="Temporary Exhibitions"
         description="Explore uma coleção de pinturas do Metropolitan Museum."
+        id="temporary-exhibitions"
       />
 
       <About 
         title="About this project"
+        id="about"
       />
     </>
   );
