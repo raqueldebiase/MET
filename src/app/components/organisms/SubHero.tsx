@@ -9,8 +9,8 @@ import { ArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
 export const SubHero: React.FC = () => {
   const specificArtwork: ArtworkByHighlight = {
     id: 123, // Adicione um ID fictício ou relevante
+    imageUrl: '/img/bg/hero.png',
     title: 'Boating',
-    imageUrl: '', // Pode deixar vazio já que a imagem não será exibida
     objectDate: '1874',
     isPublicDomain: true, // Adicione se necessário
     artistDisplayName: 'Edouard Manet',
