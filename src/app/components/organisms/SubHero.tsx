@@ -38,7 +38,7 @@ export const SubHero: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="bg-primary/80 rounded-lg px-4 py-2 w-80">
+      <div className="bg-primary/80 rounded-lg px-4 py-2 w-1/4">
           <ArtCard artwork={specificArtwork} showImage={false} />
         </div>
     </section>
