@@ -15,7 +15,7 @@ const Expo2Page = () => {
       <div className="relative h-screen bg-expo-2 bg-cover bg-no-repeat bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
         <div className="relative h-full z-10 p-24 flex items-end justify-end text-gray-100">
-          <div className="max-w-lg text-right">
+          <div className="max-w-lg text-right backdrop-blur-md bg-white/20 rounded-lg p-8">
             <h1 className="text-4xl font-bold">{exhibition.title}</h1>
             <p className="mt-4">{exhibition.description}</p>
           </div>
