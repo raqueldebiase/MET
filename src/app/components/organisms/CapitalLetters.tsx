@@ -95,22 +95,6 @@ const CapitalLetters: React.FC = () => {
                       quality={100}
                     />
                   </div>
-                  <div className='w-1/2 grid content-end'>
-                    <div className='mb-8'>
-                      <h3 className="text-xl mb-2">{selectedArtwork.title}</h3>
-                      <p className="text-md mb-6">{selectedArtwork.artistDisplayName || 'Unknown'}</p>
-                    </div>
-                    <div>
-                      <p className="text-md text-gray-500">{selectedArtwork.objectDate || 'N/A'}</p>
-                      <p className="text-md text-gray-500">Local: {selectedArtwork.city || 'N/A'}</p> 
-                      <p className="text-md text-gray-500">Medium: {selectedArtwork.medium || 'N/A'}</p>
-                      <p className="text-md text-gray-500">Dimensions: {selectedArtwork.dimensions || 'N/A'}</p>
-                      <p className="text-md text-gray-500">{selectedArtwork.repository || 'N/A'}</p>
-                      <p className="text-md text-gray-500">{selectedArtwork.isPublicDomain || 'N/A'}</p>
-                          
-                    </div>
-                        
-                  </div>
                 </div>
               </section>
             )}
