@@ -56,9 +56,8 @@ const AnnunciationExpo: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto px-4">
-      <h2 className="text-4xl font-bold mb-8 text-center">Annunciation Expo</h2>
-
+    <div className="mx-auto pt-24">
+      
       {loading && (
         <div className="flex justify-center items-center h-64">
           <LoadingSpinner />
@@ -95,7 +94,7 @@ const AnnunciationExpo: React.FC = () => {
           </div>
 
           {/* Detalhes da Obra Selecionada */}
-          <div ref={detailsRef} className="mt-8 py-24 bg-gray-50">
+          <div ref={detailsRef} className="mt-8 h-screen flex items-center bg-primary">
             {selectedArtwork && (
               <section className="p-8">
                 <div className="flex flex-col md:flex-row justify-center items-end space-y-6 md:space-y-0 md:space-x-8">
@@ -108,8 +107,8 @@ const AnnunciationExpo: React.FC = () => {
                       fadeDuration={150}
                     />
                   </div>
-                  <div className="w-full md:w-1/3 space-y-2">
-                    <h3 className="text-2xl font-semibold">{selectedArtwork.title}</h3>
+                  <div className="w-full md:w-2/3 space-y-2">
+                    <h3 className="text-2xl text-white font-semibold">{selectedArtwork.title}</h3>
                     <p className="text-lg text-gray-600">{selectedArtwork.artistDisplayName || 'Unknown Artist'}</p>
                     <p className="text-sm text-gray-500">Date: {selectedArtwork.objectDate || 'N/A'}</p>
                     <p className="text-sm text-gray-500">Location: {selectedArtwork.city || 'N/A'}</p>
