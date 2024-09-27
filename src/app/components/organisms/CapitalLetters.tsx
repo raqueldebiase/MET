@@ -50,10 +50,6 @@ const CapitalLetters: React.FC = () => {
     sliderRef.current?.slickPrev();
   };
 
-  // const closeModal = () => {
-  //   setSelectedArtwork(null);
-  // };
-
   return (
     <div className="mx-auto">
       <h2 className="text-4xl p-8 font-bold mb-4">Artwork Gallery</h2>
@@ -87,35 +83,19 @@ const CapitalLetters: React.FC = () => {
             {selectedArtwork && (
               <section className="p-8">
                 <div className="mt-4 flex justify-center">
-                  <div className='w-2/4 flex justify-center cursor-pointer' onClick={() => setSelectedArtwork(selectedArtwork)}>
-                  <div style={{ maxWidth: '120%', maxHeight: '90%', cursor: 'zoom-out' }}>
-                <InnerImageZoom
-                  src={selectedArtwork.imageUrl}
-                  zoomType="click"
-                  zoomScale={3}
-                  zoomSrc={selectedArtwork.imageUrl}
-                  fadeDuration={200}
-                />
-              </div>
+                  <div className='w-2/4 flex justify-center'>
+                    <InnerImageZoom
+                      src={selectedArtwork.imageUrl}
+                      zoomType="hover"
+                      zoomScale={2} 
+                      zoomSrc={selectedArtwork.imageUrl}
+                      fadeDuration={150}  
+                    />
                   </div>
                 </div>
               </section>
             )}
           </div>
-
-          {/* Modal for enlarged image */}
-          {/* {selectedArtwork && (
-            <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50" onClick={closeModal}>
-              <div style={{ maxWidth: '90%', maxHeight: '90%', cursor: 'zoom-out' }}>
-                <InnerImageZoom
-                  src={selectedArtwork.imageUrl}
-                  zoomType="click"
-                  zoomScale={2}
-                  zoomSrc={selectedArtwork.imageUrl}
-                />
-              </div>
-            </div>
-          )} */}
         </>
       )}
     </div>

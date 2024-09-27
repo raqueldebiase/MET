@@ -7,10 +7,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Artwork } from '@/app/hooks/useArtworkById';
-import Image from 'next/image';
 import NextArrow from '../atoms/NextArrow';
 import PrevArrow from '../atoms/PrevArrow';
 import LoadingSpinner from '../atoms/LoadingSpinner';
+import InnerImageZoom from 'react-inner-image-zoom';
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 
 const AnnunciationExpo: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -52,7 +53,7 @@ const AnnunciationExpo: React.FC = () => {
 
   return (
     <div className="mx-auto">
-      <h2 className="text-4xl p-8 font-bold mb-8">Artwork Gallery</h2>
+      <h2 className="text-4xl p-8 font-bold mb-8">Annunciation Expo</h2>
       {loading && (
         <div className="flex justify-center items-center h-64">
           <LoadingSpinner />
@@ -62,33 +63,34 @@ const AnnunciationExpo: React.FC = () => {
       {!loading && !error && data.length === 0 && <p>Nenhuma obra encontrada.</p>}
       {!loading && !error && data.length > 0 && (
         <>
-          <Slider ref={sliderRef} {...settings}>
-            {data.map((art) => (
-              <ExpoCard
-                key={art.id}
-                artwork={art}
-                onClick={() => handleCardClick(art)}
-              />
-            ))}
-          </Slider>
+          <div className="slider-container overflow-hidden relative mx-auto">
+            <Slider ref={sliderRef} {...settings}>
+              {data.map((art) => (
+                <ExpoCard
+                  key={art.id}
+                  artwork={art}
+                  onClick={() => handleCardClick(art)}
+                />
+              ))}
+            </Slider>
+          </div>
 
           <div className="flex justify-end space-x-0 px-8">
             <PrevArrow onClick={goToPrev} />
             <NextArrow onClick={goToNext} />
           </div>
 
-          <div ref={detailsRef} className="mt-8 py-8 bg-gray-30">
+          <div ref={detailsRef} className="mt-8 py-8 bg-gray-50">
             {selectedArtwork && (
               <section className="p-8">
                 <div className="mt-4 flex justify-center">
                   <div className='w-1/2 flex justify-center'>
-                    <Image
+                    <InnerImageZoom
                       src={selectedArtwork.imageUrl}
-                      alt={selectedArtwork.title}
-                      width={600}
-                      height={400}
-                      layout="intrinsic"
-                      quality={100}
+                      zoomType="hover"
+                      zoomScale={2}  
+                      zoomSrc={selectedArtwork.imageUrl}
+                      fadeDuration={150} 
                     />
                   </div>
                 </div>
