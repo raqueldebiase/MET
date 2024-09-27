@@ -1,46 +1,34 @@
-// SubHero.tsx
-
 'use client';
 
 import React from 'react';
-import { ArtCard } from '../molecules/ArtCard';
-import { ArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
+import Link from 'next/link';
 
 export const SubHero: React.FC = () => {
-  const specificArtwork: ArtworkByHighlight = {
-    id: 123, // Adicione um ID fictício ou relevante
-    imageUrl: '/img/bg/hero.png',
-    title: 'Boating',
-    objectDate: '1874',
-    isPublicDomain: true, // Adicione se necessário
-    artistDisplayName: 'Edouard Manet',
-    dimensions: '38 1/4 x 51 1/4 in. (97.2 x 130.2 cm)',
-    repository: 'The Metropolitan Museum of Art', // Adicione o repositório
-    medium: 'Oil on canvas',
-    geographyType: 'Paris', // Adicione um tipo de geografia
-    city: 'Paris',
-    linkResource: 'https://www.metmuseum.org/art/collection/search/436947',
-  };
 
   return (
-    <section className="h-full flex flex-wrap justify-end gap-72 items-center pb-2">
-      <div className="">
-        <div className="backdrop-blur-md bg-white/30 rounded-lg p-8 w-2/4">
-          <h2 className="text-2xl mb-8">Título da Sessão</h2>
-          <p>
+    <section className="h-full pb-2 flex flex-col justify-end items-end mt-96">
+      <div className="backdrop-blur-md bg-white/30 rounded-lg p-8 w-2/4 mb-4">
+        <h2 className="text-2xl mb-8">Título da Sessão</h2>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor
-            interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui
-            quam blandit metus, sed lobortis diam orci nec neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor
-            interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui
-            quam blandit metus, sed lobortis diam orci nec neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor
-            interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui
-            quam blandit metus, sed lobortis diam orci nec neque.
-          </p>
-        </div>
+          interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui
+          quam blandit metus, sed lobortis diam orci nec neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor
+          interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui
+          quam blandit metus, sed lobortis diam orci nec neque.
+        </p>
       </div>
-      <div className="bg-primary/80 rounded-lg px-4 py-2 w-1/4">
-          <ArtCard artwork={specificArtwork} showImage={false} />
-        </div>
+
+      <div className="text-white text-end px-0 pt-2 mt-4 w-1/4">
+        <h3>Title: Boating</h3>
+        <h4>Edouard Manet</h4>
+        <p>1874, Paris</p>
+        <p>Medium: Oil on canvas,</p>
+        <p>Dimensions: 38 1/4 x 51 1/4 in. (97.2 x 130.2 cm)</p>
+        <p>The Metropolitan Museum of Art</p>
+        <Link href='https://www.metmuseum.org/art/collection/search/436947' className="text-sm text-blue-200 hover:underline" target="_blank" rel="noopener noreferrer">
+                View on MET website
+        </Link>
+      </div>
     </section>
   );
 };

@@ -37,7 +37,7 @@ export default function Page() {
   return (
     <>
       <section
-        className="relative text-gray-100 bg-center bg-no-repeat"
+        className="relative text-gray-100 bg-center bg-no-repeat h-screen"
         style={{
           backgroundImage: 'url(/img/bg/hero.png)',
           backgroundSize: 'cover',
@@ -45,15 +45,11 @@ export default function Page() {
           transition: 'height 0.5s ease-out',
         }}
       >
-        <div className="flex flex-col p-8">
-          <Hero onButtonClick={function (): void {
-            throw new Error('Function not implemented.');
-          } } imageUrl={''} />
+        <div className="flex flex-wrap items-end p-8">
+          <Hero onButtonClick={() => { throw new Error('Function not implemented.'); }} imageUrl={''} />
           <SubHero />
         </div>
       </section>
-
-
       <Gallery
         title="Galeria de Obras de Arte do MET"
         description="Explore uma coleção de pinturas do Metropolitan Museum." 
