@@ -12,6 +12,7 @@ import PrevArrow from '../atoms/PrevArrow';
 import LoadingSpinner from '../atoms/LoadingSpinner';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import { ButtonExpand } from '../atoms/ButtonExpand';
 
 const CapitalLetters: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -63,13 +64,21 @@ const CapitalLetters: React.FC = () => {
       {!loading && !error && data.length > 0 && (
         <>
           <div className="slider-container overflow-hidden relative mx-auto">
-            <Slider ref={sliderRef} {...settings}>
+          <Slider ref={sliderRef} {...settings}>
               {data.map((art) => (
-                <ExpoCard 
-                  key={art.id} 
-                  artwork={art} 
-                  onClick={() => handleCardClick(art)} 
-                />
+                <div key={art.id} className="relative">
+                  {/* Componente do Card */}
+                  <ExpoCard
+                    artwork={art}
+                    onClick={() => handleCardClick(art)}
+                  />
+                  {/* Botão Expandir dentro do Card */}
+                  <div className="absolute bottom-24 right-10">
+                  <ButtonExpand
+                    onClick={() => handleCardClick(art)}  
+                  />
+                  </div>
+                </div>
               ))}
             </Slider>
           </div>
@@ -79,18 +88,28 @@ const CapitalLetters: React.FC = () => {
             <NextArrow onClick={goToNext} />
           </div>
 
-          <div ref={detailsRef} className="mt-8 py-8 bg-gray-50">
+          <div ref={detailsRef} className="mt-8 py-24 ">
             {selectedArtwork && (
               <section className="p-8">
-                <div className="mt-4 flex justify-center">
-                  <div className='w-2/4 flex justify-center'>
+                <div className="flex flex-col md:flex-row justify-center items-end space-y-6 md:space-y-0 md:space-x-8 ">
+                  <div className="w-full md:w-2/3 flex justify-center">
                     <InnerImageZoom
                       src={selectedArtwork.imageUrl}
-                      zoomType="hover"
-                      zoomScale={2} 
+                      zoomType="click"
+                      zoomScale={2}
                       zoomSrc={selectedArtwork.imageUrl}
-                      fadeDuration={150}  
+                      fadeDuration={150}
                     />
+                  </div>
+                  <div className="w-full md:w-1/3 space-y-2">
+                    <h3 className="text-2xl font-semibold">{selectedArtwork.title}</h3>
+                    <p className="text-lg text-gray-600">{selectedArtwork.artistDisplayName || 'Unknown Artist'}</p>
+                    <p className="text-sm text-gray-500">Date: {selectedArtwork.objectDate || 'N/A'}</p>
+                    <p className="text-sm text-gray-500">Location: {selectedArtwork.city || 'N/A'}</p>
+                    <p className="text-sm text-gray-500">Medium: {selectedArtwork.medium || 'N/A'}</p>
+                    <p className="text-sm text-gray-500">Dimensions: {selectedArtwork.dimensions || 'N/A'}</p>
+                    <p className="text-sm text-gray-500">Collection: {selectedArtwork.repository || 'N/A'}</p>
+                    <p className="text-sm text-gray-500">{selectedArtwork.isPublicDomain ? 'Public Domain' : 'Not Public Domain'}</p>
                   </div>
                 </div>
               </section>

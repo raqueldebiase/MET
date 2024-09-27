@@ -31,8 +31,8 @@ const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
           <p className="text-md text-gray-500">{artwork.objectDate || 'N/A'}</p>
           <p className="text-md text-gray-500">Local: {artwork.city || 'N/A'}</p> 
           <p className="text-md text-gray-500">Medium: {artwork.medium || 'N/A'}</p>
-          <p className="text-md text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p>
-          <p className="text-md text-gray-500">{artwork.repository || 'N/A'}</p>
+          {/* <p className="text-md text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p> */}
+          {/* <p className="text-md text-gray-500">{artwork.repository || 'N/A'}</p> */}
           <p className="text-md text-gray-500">{artwork.isPublicDomain || 'N/A'}</p>
                           
         </div>
