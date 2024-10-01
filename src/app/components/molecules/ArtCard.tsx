@@ -9,10 +9,9 @@ import { ButtonExpand } from '../atoms/ButtonExpand';
 import { ArtworkByHighlight } from '@/app/hooks/useArtworkByHighlight';
 import Link from 'next/link';
 
-// Definição da interface com a prop opcional showImage
 interface ArtCardProps {
   artwork: ArtworkByHighlight;
-  showImage?: boolean; // Adiciona a prop opcional showImage
+  showImage?: boolean;
 }
 
 export const ArtCard: React.FC<ArtCardProps> = ({ artwork, showImage = true }) => {
@@ -24,17 +23,18 @@ export const ArtCard: React.FC<ArtCardProps> = ({ artwork, showImage = true }) =
     setShowDetails((prev) => !prev);
   };
 
+  console.log('linkResource:', linkResource); // Para depuração
+
   return (
     <div className="art-card overflow-hidden">
-      {/* Renderização condicional da imagem */}
       {showImage && (
         <Image
           src={imageUrl || fallbackImageUrl}
           alt={title}
-          layout="responsive"
           width={500}
           height={400}
           className="w-full h-48 object-cover"
+          style={{ objectFit: 'cover' }} // Para garantir o preenchimento correto
         />
       )}
       <div className="py-4">

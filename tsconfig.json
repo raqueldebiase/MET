@@ -16,13 +16,13 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "types": ["node", "jest", "@testing-library/jest-dom"],  // Adicione aqui
+    "typeRoots": ["./node_modules/@types", "./jest-dom.d.ts"],  // Adicione aqui
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "types": ["node"],  // Confirmação de inclusão dos tipos do Node.js
-    "typeRoots": ["./node_modules/@types"]  // Diretório onde os tipos estão localizados
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

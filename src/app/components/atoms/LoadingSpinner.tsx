@@ -6,6 +6,7 @@ const LoadingSpinner: React.FC = () => {
   return (
     <div className="flex items-center justify-center">
       <motion.div
+        data-testid="loading-spinner" // Adicionando um data-testid
         className="loader"
         initial={{ rotate: 0 }}
         animate={{ rotate: 360 }}

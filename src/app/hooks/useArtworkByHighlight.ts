@@ -5,17 +5,17 @@ import axios from 'axios';
 
 
 export interface ArtworkByHighlight {
-  id: number;
+  id: number;  // Necessário
   title: string;
   imageUrl: string;
   objectDate: string;
-  isPublicDomain?: boolean;
+  isPublicDomain?: boolean;  // Opcional
   artistDisplayName: string;
   dimensions: string;
-  repository: string;
+  repository: string;  // Necessário
   medium: string;
-  geographyType: string;
-  linkResource: string;
+  geographyType?: string;  // Opcional
+  linkResource?: string;  // Opcional
   city: string;
 }
 
