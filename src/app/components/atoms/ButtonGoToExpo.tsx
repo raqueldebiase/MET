@@ -10,7 +10,7 @@ interface ButtonGoToExpoProps {
 
 export const ButtonGoToExpo: React.FC<ButtonGoToExpoProps> = ({ href }) => {
   return (
-    <Link href={href}  className="mt-4 bg-white text-gray-900 px-6 py-3 rounded-full transition duration-300 hover:bg-primary hover:text-white flex items-center justify-end w-36">
+    <Link href={href}  className=" bg-white text-gray-900 px-6 py-3 rounded-full transition duration-300 hover:bg-primary hover:text-white flex items-center justify-end w-36">
         <p>Go to expo </p>
         <BsArrowRightShort />
     </Link>
