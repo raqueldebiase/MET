@@ -1,4 +1,3 @@
-// ArtworkDetails.tsx
 import React from 'react';
 import InnerImageZoom from 'react-inner-image-zoom';
 import BackButton from '../atoms/BackButton';
@@ -23,18 +22,20 @@ interface ArtworkDetailsProps {
 
 const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
   return (
-    <div className="mt-8 h-screen flex justify-center items-center bg-primary ">
+    <div className="mt-8 h-screen flex justify-center items-center bg-primary">
       <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
-        {/* Imagem centralizada */}
+        {/* Imagem centralizada com ajuste de altura */}
         <div className="w-full md:w-2/3 flex justify-center">
-          <InnerImageZoom
-            src={artwork.imageUrl}
-            zoomType="click"
-            zoomScale={2}
-            zoomSrc={artwork.imageUrl}
-            fadeDuration={150}
-            className="rounded-sm"
-          />
+          <div className="max-h-full max-w-full overflow-hidden"> {/* Adiciona um wrapper para limitar a altura */}
+            <InnerImageZoom
+              src={artwork.imageUrl}
+              zoomType="click"
+              zoomScale={2}
+              zoomSrc={artwork.imageUrl}
+              fadeDuration={150}
+              className="rounded-sm max-h-full object-contain" 
+            />
+          </div>
         </div>
 
         {/* Detalhes da obra */}
@@ -59,7 +60,6 @@ const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
           <div className='pt-12'>
             <BackButton onClick={onBack} />
           </div>
-
         </div>
       </section>
     </div>
