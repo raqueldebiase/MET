@@ -12,7 +12,7 @@ const NextArrow: React.FC<ArrowProps> = ({ className, onClick }) => {
     <div
       className={`${className} custom-next-arrow `} onClick={onClick}
     >
-      <ButtonNext text="Next" onClick={onClick}/>
+      <ButtonNext onClick={onClick}/>
     </div>
   );
 };
