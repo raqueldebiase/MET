@@ -17,6 +17,7 @@ export interface ArtworkByHighlight {
   geographyType?: string;  // Opcional
   linkResource?: string;  // Opcional
   city: string;
+  country: string;
 }
 
 // Função para burcar elementos aleatórios
@@ -66,6 +67,7 @@ export const useArtworkByHighlight = () => {
                   geographyType: data.geographyType,
                   linkResource: data.linkResource,
                   city: data.city,
+                  country: data.country
                 } as ArtworkByHighlight;
               } catch (error) {
                 console.error(`Error fetching details for ID ${id}:`, error);

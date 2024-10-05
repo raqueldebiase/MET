@@ -27,15 +27,17 @@ const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
       
       <h3 className="text-xl mb-2">{artwork.title}</h3>
       <p className="text-md mb-6">{artwork.artistDisplayName || 'Unknown'}</p>
-        <div>
-          <p className="text-md text-gray-500">{artwork.objectDate || 'N/A'}</p>
-          <p className="text-md text-gray-500">Local: {artwork.city || 'N/A'}</p> 
-          <p className="text-md text-gray-500">Medium: {artwork.medium || 'N/A'}</p>
-          <p className="text-md text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p>
-          <p className="text-md text-gray-500">{artwork.repository || 'N/A'}</p>
-          <p className="text-md text-gray-500">{artwork.isPublicDomain || 'N/A'}</p>
-                          
-        </div>
+      <nav>
+                    <ul className="text-md text-gray-400 ">
+                      <li><span className="font-semibold">Date:</span> {artwork.objectDate || 'N/A'}</li>
+                      <li><span className="font-semibold">City:</span> {artwork.city || 'N/A'}</li>
+                      <li><span className="font-semibold">Country:</span> {artwork.country || 'N/A'}</li>
+                      <li><span className="font-semibold">Medium:</span> {artwork.medium || 'N/A'}</li>
+                      <li><span className="font-semibold">Dimensions:</span> {artwork.dimensions || 'N/A'}</li>
+                      <li><span className="font-semibold">Collection:</span> {artwork.repository || 'N/A'}</li>
+                      <li><span className="font-semibold">Public Domain:</span> {artwork.isPublicDomain ? 'Yes' : 'No'}</li>
+                    </ul>
+                  </nav>
     </div>
   );
 };

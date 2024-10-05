@@ -1,6 +1,7 @@
+
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useArtworkById } from '@/app/hooks/useArtworkById';
 import ExpoCard from '@/app/components/molecules/ExpoCard';
 import Slider from 'react-slick';
@@ -10,9 +11,8 @@ import { Artwork } from '@/app/hooks/useArtworkById';
 import NextArrow from '../atoms/NextArrow';
 import PrevArrow from '../atoms/PrevArrow';
 import LoadingSpinner from '../atoms/LoadingSpinner';
-import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
-import { FaArrowUp } from "react-icons/fa";
+import ArtworkDetails from '../molecules/ArtworkDetails';
 
 const AnnunciationExpo: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -43,13 +43,14 @@ const AnnunciationExpo: React.FC = () => {
   // Função para exibir os detalhes da obra
   const handleCardClick = (art: Artwork) => {
     setSelectedArtwork(art);
-    // Usando setTimeout para atrasar a rolagem e garantir que o estado foi atualizado
-    setTimeout(() => {
-      if (detailsRef.current) {
-        detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 0); // Atraso de 0 ms
   };
+
+  // Monitora quando o selectedArtwork é atualizado e rola até a seção de detalhes
+  useEffect(() => {
+    if (selectedArtwork && detailsRef.current) {
+      detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedArtwork]);
 
   const handleBackToSlider = () => {
     if (sliderContainerRef.current) {
@@ -115,52 +116,9 @@ const AnnunciationExpo: React.FC = () => {
           </div>
           </div>
 
-          {/* Detalhes da Obra Selecionada */}
           {selectedArtwork && (
-            <div ref={detailsRef} className="mt-8 h-screen flex justify-center items-center bg-primary">
-              <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
-                {/* Imagem centralizada */}
-                <div className="w-full md:w-2/3 flex justify-center">
-                  <InnerImageZoom
-                    src={selectedArtwork.imageUrl}
-                    zoomType="click"
-                    zoomScale={2}
-                    zoomSrc={selectedArtwork.imageUrl}
-                    fadeDuration={150}
-                    className="rounded-sm"
-                  />
-                </div>
-                
-                {/* Detalhes da obra */}
-                <div className="w-full md:w-1/3 space-y-4 text-end md:text-left">
-                  <h3 className="text-3xl text-white font-bold">{selectedArtwork.title}</h3>
-                  
-                  <p className="text-xl text-gray-300">
-                    <span className="font-semibold">Artist:</span> {selectedArtwork.artistDisplayName || 'Unknown Artist'}
-                  </p>
-
-                  <nav>
-                    <ul className="text-md text-gray-400 space-y-1">
-                      <li><span className="font-semibold">Date:</span> {selectedArtwork.objectDate || 'N/A'}</li>
-                      <li><span className="font-semibold">Location:</span> {selectedArtwork.city || 'N/A'}</li>
-                      <li><span className="font-semibold">Medium:</span> {selectedArtwork.medium || 'N/A'}</li>
-                      <li><span className="font-semibold">Dimensions:</span> {selectedArtwork.dimensions || 'N/A'}</li>
-                      <li><span className="font-semibold">Collection:</span> {selectedArtwork.repository || 'N/A'}</li>
-                      <li><span className="font-semibold">Public Domain:</span> {selectedArtwork.isPublicDomain ? 'Yes' : 'No'}</li>
-                    </ul>
-                  </nav>
-                  <div className='pt-12'>
-                    <button 
-                      onClick={handleBackToSlider} 
-                      className="px-4 py-2 text-md inline-flex items-center gap-8 border text-gray-400 rounded-full hover:bg-primary hover:border-gray-100 hover:text-gray-100 duration-300 "
-                    >
-                      Scroll back <span><FaArrowUp /></span>
-                    </button>
-                  </div>
-
-                </div>
-
-              </section>
+            <div ref={detailsRef}> {/* Adiciona a referência aqui */}
+              <ArtworkDetails artwork={selectedArtwork} onBack={handleBackToSlider} />
             </div>
           )}
 

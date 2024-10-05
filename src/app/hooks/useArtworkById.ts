@@ -18,6 +18,7 @@ export interface Artwork {
   geographyType: string;
   linkResource: string;
   city: string
+  country: string;
 }
 
 
@@ -60,6 +61,7 @@ export const useArtworkById = (ids: number[]) => {
                 geographyType: art.city,
                 linkResource: art.linkResource,
                 city: art.city,
+                country: art.country
               };
             } catch (error) {
               console.error(`Erro ao buscar detalhes para o ID ${id}:`, error);
