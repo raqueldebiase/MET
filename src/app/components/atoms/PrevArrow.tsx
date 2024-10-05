@@ -11,7 +11,7 @@ const PrevArrow: React.FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
       className={`${className} custom-prev-arrow`} onClick={onClick}>
-      <ButtonPrev text="Preview" onClick={onClick}/>
+      <ButtonPrev onClick={onClick}/>
       
     </div>
   );
