@@ -1,15 +1,15 @@
 // src/components/atoms/ButtonPrev.tsx
 import React from 'react';
+import { IoIosArrowBack } from "react-icons/io";
 
 interface ButtonPrevProps {
-  text: string;
   onClick?: () => void;
 }
 
-export const ButtonPrev: React.FC<ButtonPrevProps> = ({ text, onClick }) => {
+export const ButtonPrev: React.FC<ButtonPrevProps> = ({ onClick }) => {
   return (
-    <button onClick={onClick} className="px-4 py-2 w-32 border text-primary rounded-full">
-      {text}
+    <button onClick={onClick} className="p-4 bg-gray-200 text-primary rounded-full bg-opacity-70 text-lg">
+      <IoIosArrowBack />
     </button>
   );
 };

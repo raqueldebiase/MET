@@ -12,7 +12,7 @@ import PrevArrow from '../atoms/PrevArrow';
 import LoadingSpinner from '../atoms/LoadingSpinner';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
-
+import { FaArrowUp } from "react-icons/fa";
 
 const AnnunciationExpo: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -24,6 +24,7 @@ const AnnunciationExpo: React.FC = () => {
   const { data, loading, error } = useArtworkById(artworkIds);
   const sliderRef = useRef<Slider | null>(null);
   const detailsRef = useRef<HTMLDivElement | null>(null);
+  const sliderContainerRef = useRef<HTMLDivElement | null>(null); 
 
   const settings = {
     dots: false,
@@ -42,9 +43,21 @@ const AnnunciationExpo: React.FC = () => {
   // Função para exibir os detalhes da obra
   const handleCardClick = (art: Artwork) => {
     setSelectedArtwork(art);
-    if (detailsRef.current) {
-      detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Usando setTimeout para atrasar a rolagem e garantir que o estado foi atualizado
+    setTimeout(() => {
+      if (detailsRef.current) {
+        detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0); // Atraso de 0 ms
+  };
+
+  const handleBackToSlider = () => {
+    if (sliderContainerRef.current) {
+      sliderContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.error('sliderContainerRef is null');
     }
+    setSelectedArtwork(null);
   };
 
   const goToNext = () => {
@@ -69,8 +82,7 @@ const AnnunciationExpo: React.FC = () => {
   });
 
   return (
-    <div className="mx-auto pt-24">
-      
+    <div className="mx-auto pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
       {loading && (
         <div className="flex justify-center items-center h-64">
           <LoadingSpinner />
@@ -81,7 +93,7 @@ const AnnunciationExpo: React.FC = () => {
 
       {!loading && !error && sortedData.length > 0 && (
         <>
-          <div className="slider-container overflow-hidden relative mx-auto mb-2">
+          <div className="slider-container relative overflow-hidden relative mx-auto mb-2" ref={sliderContainerRef}>
             <Slider ref={sliderRef} {...settings}>
               {sortedData.map((art) => (
                 <div key={art.id} className="relative">
@@ -92,21 +104,20 @@ const AnnunciationExpo: React.FC = () => {
                   />
                   {/* Botão Expandir dentro do Card */}
                   <div className="absolute bottom-36 right-10">
-                  
+                    {/* Aqui você pode adicionar um botão para expandir, se necessário */}
                   </div>
                 </div>
               ))}
             </Slider>
+            <div className="absolute top-20 left-0 w-full flex justify-between p-4">
+              <PrevArrow onClick={goToPrev} />
+              <NextArrow onClick={goToNext} />
           </div>
-
-          <div className="flex justify-end mb-4 p-8">
-            <PrevArrow onClick={goToPrev} />
-            <NextArrow onClick={goToNext} />
           </div>
 
           {/* Detalhes da Obra Selecionada */}
-          <div ref={detailsRef} className="mt-8 h-screen flex justify-center items-center bg-primary">
-            {selectedArtwork && (
+          {selectedArtwork && (
+            <div ref={detailsRef} className="mt-8 h-screen flex justify-center items-center bg-primary">
               <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
                 {/* Imagem centralizada */}
                 <div className="w-full md:w-2/3 flex justify-center">
@@ -121,26 +132,37 @@ const AnnunciationExpo: React.FC = () => {
                 </div>
                 
                 {/* Detalhes da obra */}
-                <div className="w-full md:w-1/3 space-y-4 text-center md:text-left">
+                <div className="w-full md:w-1/3 space-y-4 text-end md:text-left">
                   <h3 className="text-3xl text-white font-bold">{selectedArtwork.title}</h3>
                   
                   <p className="text-xl text-gray-300">
                     <span className="font-semibold">Artist:</span> {selectedArtwork.artistDisplayName || 'Unknown Artist'}
                   </p>
 
-                  <ul className="text-md text-gray-400 space-y-1">
-                    <li><span className="font-semibold">Date:</span> {selectedArtwork.objectDate || 'N/A'}</li>
-                    <li><span className="font-semibold">Location:</span> {selectedArtwork.city || 'N/A'}</li>
-                    <li><span className="font-semibold">Medium:</span> {selectedArtwork.medium || 'N/A'}</li>
-                    <li><span className="font-semibold">Dimensions:</span> {selectedArtwork.dimensions || 'N/A'}</li>
-                    <li><span className="font-semibold">Collection:</span> {selectedArtwork.repository || 'N/A'}</li>
-                    <li><span className="font-semibold">Public Domain:</span> {selectedArtwork.isPublicDomain ? 'Yes' : 'No'}</li>
-                  </ul>
+                  <nav>
+                    <ul className="text-md text-gray-400 space-y-1">
+                      <li><span className="font-semibold">Date:</span> {selectedArtwork.objectDate || 'N/A'}</li>
+                      <li><span className="font-semibold">Location:</span> {selectedArtwork.city || 'N/A'}</li>
+                      <li><span className="font-semibold">Medium:</span> {selectedArtwork.medium || 'N/A'}</li>
+                      <li><span className="font-semibold">Dimensions:</span> {selectedArtwork.dimensions || 'N/A'}</li>
+                      <li><span className="font-semibold">Collection:</span> {selectedArtwork.repository || 'N/A'}</li>
+                      <li><span className="font-semibold">Public Domain:</span> {selectedArtwork.isPublicDomain ? 'Yes' : 'No'}</li>
+                    </ul>
+                  </nav>
+                  <div className='pt-12'>
+                    <button 
+                      onClick={handleBackToSlider} 
+                      className="px-4 py-2 text-md inline-flex items-center gap-8 border text-gray-400 rounded-full hover:bg-primary hover:border-gray-100 hover:text-gray-100 duration-300 "
+                    >
+                      Scroll back <span><FaArrowUp /></span>
+                    </button>
+                  </div>
+
                 </div>
 
               </section>
-            )}
-          </div>
+            </div>
+          )}
 
         </>
       )}
