@@ -6,14 +6,14 @@ import { Artwork } from '@/app/hooks/useArtworkById';
 
 interface ExpoCardProps {
   artwork: Artwork;
-  onClick: () => void; // Função chamada quando o cartão é clicado
+  onClick: () => void; 
 }
 
 const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
   return (
     <div 
       className="p-8 cursor-pointer" 
-      onClick={onClick} // Chama a função onClick ao clicar
+      onClick={onClick} 
     >
       <Image
         src={artwork.imageUrl}
@@ -22,7 +22,7 @@ const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
         height={400}
         layout="intrinsic"
         quality={100}
-        className="rounded-sm mb-4"
+        className="rounded-sm mb-8 transition-transform duration-500 ease-in-out hover:scale-105"
       />
       
       <h3 className="text-xl mb-2">{artwork.title}</h3>
@@ -31,8 +31,8 @@ const ExpoCard: React.FC<ExpoCardProps> = ({ artwork, onClick }) => {
           <p className="text-md text-gray-500">{artwork.objectDate || 'N/A'}</p>
           <p className="text-md text-gray-500">Local: {artwork.city || 'N/A'}</p> 
           <p className="text-md text-gray-500">Medium: {artwork.medium || 'N/A'}</p>
-          {/* <p className="text-md text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p> */}
-          {/* <p className="text-md text-gray-500">{artwork.repository || 'N/A'}</p> */}
+          <p className="text-md text-gray-500">Dimensions: {artwork.dimensions || 'N/A'}</p>
+          <p className="text-md text-gray-500">{artwork.repository || 'N/A'}</p>
           <p className="text-md text-gray-500">{artwork.isPublicDomain || 'N/A'}</p>
                           
         </div>

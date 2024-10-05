@@ -29,13 +29,13 @@ export const ArtCard: React.FC<ArtCardProps> = ({ artwork, showImage = true }) =
     <div className="art-card overflow-hidden">
       {showImage && (
         <Image
-          src={imageUrl || fallbackImageUrl}
-          alt={title}
-          width={500}
-          height={400}
-          className="w-full h-48 object-cover"
-          style={{ objectFit: 'cover' }} // Para garantir o preenchimento correto
-        />
+        src={imageUrl || fallbackImageUrl}
+        alt={title}
+        layout="responsive"
+        width={500}
+        height={400}
+        className="w-full h-48 object-cover"
+      />
       )}
       <div className="py-4">
         <h3 className="text-xl font-extralight w-2/3">{title}</h3>

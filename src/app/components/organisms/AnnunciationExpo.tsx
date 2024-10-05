@@ -12,7 +12,7 @@ import PrevArrow from '../atoms/PrevArrow';
 import LoadingSpinner from '../atoms/LoadingSpinner';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
-import { ButtonExpand } from '../atoms/ButtonExpand';
+
 
 const AnnunciationExpo: React.FC = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
@@ -55,6 +55,19 @@ const AnnunciationExpo: React.FC = () => {
     sliderRef.current?.slickPrev();
   };
 
+  // Função para extrair o ano de objectDate (exemplo: de '1500-1550' pegamos '1500')
+  const extractYear = (dateStr: string) => {
+    const yearMatch = dateStr.match(/\d{4}/); // Encontra o primeiro grupo de 4 dígitos
+    return yearMatch ? parseInt(yearMatch[0], 10) : null;
+  };
+
+  // Ordena as obras por data, do mais antigo ao mais recente
+  const sortedData = data?.sort((a, b) => {
+    const yearA = extractYear(a.objectDate || '') || 0; // Se não houver data, assume 0 (muito antigo)
+    const yearB = extractYear(b.objectDate || '') || 0;
+    return yearA - yearB;
+  });
+
   return (
     <div className="mx-auto pt-24">
       
@@ -64,13 +77,13 @@ const AnnunciationExpo: React.FC = () => {
         </div>
       )}
       {error && <p className="text-red-500 text-center">{error}</p>}
-      {!loading && !error && data.length === 0 && <p className="text-center">Nenhuma obra encontrada.</p>}
+      {!loading && !error && sortedData.length === 0 && <p className="text-center">Nenhuma obra encontrada.</p>}
 
-      {!loading && !error && data.length > 0 && (
+      {!loading && !error && sortedData.length > 0 && (
         <>
-          <div className="slider-container overflow-hidden relative mx-auto mb-8">
+          <div className="slider-container overflow-hidden relative mx-auto mb-2">
             <Slider ref={sliderRef} {...settings}>
-              {data.map((art) => (
+              {sortedData.map((art) => (
                 <div key={art.id} className="relative">
                   {/* Componente do Card */}
                   <ExpoCard
@@ -79,48 +92,56 @@ const AnnunciationExpo: React.FC = () => {
                   />
                   {/* Botão Expandir dentro do Card */}
                   <div className="absolute bottom-36 right-10">
-                  <ButtonExpand
-                    onClick={() => handleCardClick(art)}  
-                  />
+                  
                   </div>
                 </div>
               ))}
             </Slider>
           </div>
 
-          <div className="flex justify-end space-x-4 mb-4">
+          <div className="flex justify-end mb-4 p-8">
             <PrevArrow onClick={goToPrev} />
             <NextArrow onClick={goToNext} />
           </div>
 
           {/* Detalhes da Obra Selecionada */}
-          <div ref={detailsRef} className="mt-8 h-screen flex items-center bg-primary">
+          <div ref={detailsRef} className="mt-8 h-screen flex justify-center items-center bg-primary">
             {selectedArtwork && (
-              <section className="p-8">
-                <div className="flex flex-col md:flex-row justify-center items-end space-y-6 md:space-y-0 md:space-x-8">
-                  <div className="w-full md:w-2/3 flex justify-center">
-                    <InnerImageZoom
-                      src={selectedArtwork.imageUrl}
-                      zoomType="click"
-                      zoomScale={2}
-                      zoomSrc={selectedArtwork.imageUrl}
-                      fadeDuration={150}
-                    />
-                  </div>
-                  <div className="w-full md:w-2/3 space-y-2">
-                    <h3 className="text-2xl text-white font-semibold">{selectedArtwork.title}</h3>
-                    <p className="text-lg text-gray-600">{selectedArtwork.artistDisplayName || 'Unknown Artist'}</p>
-                    <p className="text-sm text-gray-500">Date: {selectedArtwork.objectDate || 'N/A'}</p>
-                    <p className="text-sm text-gray-500">Location: {selectedArtwork.city || 'N/A'}</p>
-                    <p className="text-sm text-gray-500">Medium: {selectedArtwork.medium || 'N/A'}</p>
-                    <p className="text-sm text-gray-500">Dimensions: {selectedArtwork.dimensions || 'N/A'}</p>
-                    <p className="text-sm text-gray-500">Collection: {selectedArtwork.repository || 'N/A'}</p>
-                    <p className="text-sm text-gray-500">{selectedArtwork.isPublicDomain ? 'Public Domain' : 'Not Public Domain'}</p>
-                  </div>
+              <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
+                {/* Imagem centralizada */}
+                <div className="w-full md:w-2/3 flex justify-center">
+                  <InnerImageZoom
+                    src={selectedArtwork.imageUrl}
+                    zoomType="click"
+                    zoomScale={2}
+                    zoomSrc={selectedArtwork.imageUrl}
+                    fadeDuration={150}
+                    className="rounded-sm"
+                  />
                 </div>
+                
+                {/* Detalhes da obra */}
+                <div className="w-full md:w-1/3 space-y-4 text-center md:text-left">
+                  <h3 className="text-3xl text-white font-bold">{selectedArtwork.title}</h3>
+                  
+                  <p className="text-xl text-gray-300">
+                    <span className="font-semibold">Artist:</span> {selectedArtwork.artistDisplayName || 'Unknown Artist'}
+                  </p>
+
+                  <ul className="text-md text-gray-400 space-y-1">
+                    <li><span className="font-semibold">Date:</span> {selectedArtwork.objectDate || 'N/A'}</li>
+                    <li><span className="font-semibold">Location:</span> {selectedArtwork.city || 'N/A'}</li>
+                    <li><span className="font-semibold">Medium:</span> {selectedArtwork.medium || 'N/A'}</li>
+                    <li><span className="font-semibold">Dimensions:</span> {selectedArtwork.dimensions || 'N/A'}</li>
+                    <li><span className="font-semibold">Collection:</span> {selectedArtwork.repository || 'N/A'}</li>
+                    <li><span className="font-semibold">Public Domain:</span> {selectedArtwork.isPublicDomain ? 'Yes' : 'No'}</li>
+                  </ul>
+                </div>
+
               </section>
             )}
           </div>
+
         </>
       )}
     </div>

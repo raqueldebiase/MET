@@ -9,17 +9,16 @@ interface ButtonExpandProps {
 export const ButtonExpand: React.FC<ButtonExpandProps> = ({ imageUrl, onClick }) => {
   const handleClick = () => {
     if (onClick) {
-      // Se a função onClick for passada, executa ela
       onClick();
     } else if (imageUrl) {
-      // Se o imageUrl for passado e onClick não estiver presente, abre a imagem em uma nova aba
       window.open(imageUrl, '_blank');
     }
   };
 
   return (
-    <button onClick={handleClick} className="px-4 py-2 border rounded-full text-lg text-gray-400">
-      <AiOutlineExpand />
+    <button onClick={handleClick} className="px-4 py-2 border rounded-full text-lg text-gray-400 hover:bg-primary hover:border-primary hover:text-gray-100 duration-300">
+      {/* Adiciona data-testid para facilitar o teste */}
+      <AiOutlineExpand data-testid="expand-icon" />
     </button>
   );
 };
