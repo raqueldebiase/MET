@@ -6,7 +6,7 @@ export const Exhibition01: React.FC = () => {
   return (
     <section
       className="
-        h-[40vh] 
+        h-screen 
         md:h-screen 
         text-gray-100 
         bg-no-repeat 
@@ -18,7 +18,7 @@ export const Exhibition01: React.FC = () => {
         p-4 md:p-24 
         bg-[length:150%] 
         md:bg-cover 
-        bg-[position:50%_50%] 
+        bg-[20%_50%]
         md:bg-center
       "
       aria-labelledby="exhibition-title"
