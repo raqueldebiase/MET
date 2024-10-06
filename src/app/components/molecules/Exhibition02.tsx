@@ -8,9 +8,8 @@ export const Exhibition02: React.FC = () => {
   return (
     <section
       className="
-      h-[40vh] 
-      md:h-screen 
-      text-gray-100 
+      h-screen 
+      text-primary 
       bg-top 
       bg-no-repeat 
       bg-manuscript-exhibition 
@@ -20,7 +19,7 @@ export const Exhibition02: React.FC = () => {
       justify-end 
       p-4 md:p-24 
       bg-[length:120%] 
-      md:bg-cover 
+      bg-[20%_50%] 
       md:bg-center
       "
     >
