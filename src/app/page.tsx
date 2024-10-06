@@ -30,7 +30,7 @@ export default function Page() {
       setScrollY(window.scrollY);
 
       const zoomLevel = isMobile
-        ? Math.max(40, 70 - window.scrollY * 0.8) // Mobile zoom (90-120%)
+        ? Math.max(40, 70 - window.scrollY * 0.5) // Mobile zoom (90-120%)
         : Math.max(75, 120 - window.scrollY * 0.5); // Desktop zoom (75-120%)
 
       const img = new Image();
