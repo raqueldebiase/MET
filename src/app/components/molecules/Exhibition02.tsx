@@ -8,8 +8,9 @@ export const Exhibition02: React.FC = () => {
   return (
     <section
       className="
-      h-screen 
-      text-primary 
+      h-screen
+      md:h-screen 
+      text-primary
       bg-top 
       bg-no-repeat 
       bg-manuscript-exhibition 
@@ -19,9 +20,12 @@ export const Exhibition02: React.FC = () => {
       justify-end 
       p-4 md:p-24 
       bg-[length:120%] 
-      bg-[20%_50%] 
-      md:bg-center
-      "
+      md:bg-[30%_top]
+      md:bg-cover 
+      bg-top
+      bg-[20%_50%]
+      
+"
     >
       {/* Container do conteúdo com largura responsiva */}
       <div className="w-full md:w-1/3 backdrop-blur-md bg-white/30 p-3 flex flex-col gap-4 rounded-lg shadow-md">
