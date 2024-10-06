@@ -9,7 +9,7 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = () => {
 
   return (
-    <section className="h-screen flex items-center">
+    <section className="md:h-screen flex items-center">
         <div className="max-w-96">
           <div className="card mb-8">
             <h1 className="text-4xl font-bold">TEXTO INICIAL</h1>

@@ -30,7 +30,7 @@ export default function Page() {
       setScrollY(window.scrollY);
 
       const zoomLevel = isMobile
-        ? Math.max(70, 100 - window.scrollY * 0.8) // Mobile zoom (90-120%)
+        ? Math.max(40, 70 - window.scrollY * 0.8) // Mobile zoom (90-120%)
         : Math.max(75, 120 - window.scrollY * 0.5); // Desktop zoom (75-120%)
 
       const img = new Image();
@@ -53,7 +53,7 @@ export default function Page() {
   return (
     <>
       <section
-        className="relative text-gray-100 bg-center bg-no-repeat md:h-screen"
+        className="relative text-gray-100 bg-center bg-no-repeat md:h-screen flex"
         style={{
           backgroundImage: 'url(/img/bg/hero.png)',
           backgroundSize: 'cover', // Mantém cover para desktop e mobile
