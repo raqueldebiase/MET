@@ -38,6 +38,15 @@ const AnnunciationExpo: React.FC = () => {
     autoplaySpeed: 6000,
     pauseOnHover: true,
     swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 767, // Para telas com largura menor que 767px (mobile)
+        settings: {
+          slidesToShow: 1, // Exibe apenas 1 slide por vez
+          swipe: true, // Habilita swipe para mobile
+        },
+      },
+    ],
   };
 
   // Função para exibir os detalhes da obra

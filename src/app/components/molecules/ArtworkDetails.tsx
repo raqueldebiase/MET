@@ -22,10 +22,10 @@ interface ArtworkDetailsProps {
 
 const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
   return (
-    <div className="mt-8 h-screen flex justify-center items-center bg-primary">
+    <div className="pt-16 h-screen flex justify-center items-center bg-primary">
       <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
         {/* Imagem centralizada com ajuste de altura */}
-        <div className="w-full md:w-2/3 flex justify-center">
+        <div className="w-full md:w-2/3 md:flex md:justify-center">
           <div className="max-h-full max-w-full overflow-hidden"> {/* Adiciona um wrapper para limitar a altura */}
             <InnerImageZoom
               src={artwork.imageUrl}
@@ -39,8 +39,8 @@ const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
         </div>
 
         {/* Detalhes da obra */}
-        <div className="w-full md:w-1/3 space-y-4 text-end md:text-left">
-          <h3 className="text-3xl text-white font-bold">{artwork.title}</h3>
+        <div className="w-full md:w-1/3 space-y-4 md:text-end md:text-left">
+          <h3 className="text-xl md:text-3xl text-white font-bold">{artwork.title}</h3>
           
           <p className="text-xl text-gray-300">
             <span className="font-semibold">Artist:</span> {artwork.artistDisplayName || 'Unknown Artist'}
