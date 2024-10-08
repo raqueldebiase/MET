@@ -22,8 +22,8 @@ interface ArtworkDetailsProps {
 
 const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
   return (
-    <div className="pt-16 h-screen flex justify-center items-center bg-primary">
-      <section className="p-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
+    <div className="pt-16 md:h-screen flex justify-center items-center bg-primary">
+      <section className="px-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
         {/* Imagem centralizada com ajuste de altura */}
         <div className="w-full md:w-2/3 md:flex md:justify-center">
           <div className="max-h-full max-w-full overflow-hidden"> {/* Adiciona um wrapper para limitar a altura */}

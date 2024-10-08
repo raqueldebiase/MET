@@ -19,7 +19,7 @@ const Expo1Page = () => {
         </div>
       </div>
 
-      <div className="intro container mx-auto py-24 md:grid md:grid-cols-2 px-4 gap-24">
+      <div className="intro container mx-auto pt-16 md:py-24 md:grid md:grid-cols-2 px-4 gap-24">
         <div className="intro-txt mb-8 ">
           <h2 className="text-3xl font-bold mb-8">Introduction</h2>
           <p className="mb-8 ">
