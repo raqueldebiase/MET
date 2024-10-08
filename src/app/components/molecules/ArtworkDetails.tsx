@@ -26,17 +26,20 @@ const ArtworkDetails: React.FC<ArtworkDetailsProps> = ({ artwork, onBack }) => {
       <section className="px-8 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
         {/* Imagem centralizada com ajuste de altura */}
         <div className="w-full md:w-2/3 md:flex md:justify-center">
-          <div className="max-h-full max-w-full overflow-hidden"> {/* Adiciona um wrapper para limitar a altura */}
-            <InnerImageZoom
-              src={artwork.imageUrl}
-              zoomType="click"
-              zoomScale={2}
-              zoomSrc={artwork.imageUrl}
-              fadeDuration={150}
-              className="rounded-sm max-h-full object-contain" 
-            />
-          </div>
-        </div>
+  <div className="max-h-full max-w-full overflow-hidden"> {/* Adiciona um wrapper para limitar a altura */}
+    <InnerImageZoom
+      src={artwork.imageUrl}
+      zoomType="click"
+      zoomScale={2}
+      zoomSrc={artwork.imageUrl}
+      fadeDuration={150}
+      className="rounded-sm max-h-full object-contain"
+      mobileBreakpoint={768} // Adiciona esta propriedade para mobile
+      fullscreenOnMobile={true} // Abre a imagem em tela cheia no mobile
+    />
+  </div>
+</div>
+
 
         {/* Detalhes da obra */}
         <div className="w-full md:w-1/3 space-y-4 md:text-end md:text-left">
