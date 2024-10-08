@@ -62,8 +62,9 @@ const AnnunciationExpo: React.FC = () => {
   }, [selectedArtwork]);
 
   const handleBackToSlider = () => {
-    if (sliderContainerRef.current) {
-      sliderContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const sliderElement = document.getElementById('slider-container');
+    if (sliderElement) {
+      sliderElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
       console.error('sliderContainerRef is null');
     }
@@ -103,7 +104,7 @@ const AnnunciationExpo: React.FC = () => {
 
       {!loading && !error && sortedData.length > 0 && (
         <>
-          <div className="slider-container relative overflow-hidden relative mx-auto mb-2" ref={sliderContainerRef}>
+          <div id="slider-container" className="relative overflow-hidden relative mx-auto mb-2" ref={sliderContainerRef}>
             <Slider ref={sliderRef} {...settings}>
               {sortedData.map((art) => (
                 <div key={art.id} className="relative">
