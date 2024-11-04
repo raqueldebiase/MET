@@ -14,7 +14,7 @@ export const TemporaryExhibitions: React.FC<TemporaryProps> = ({ title, descript
   return (
     <section className="temporary-exhibitions py-12" id={id}>
       <div className="container mx-auto px-4 text-center mb-8">
-        <h2 className="text-3xl font-bold">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
         <p className="text-lg text-gray-500 mt-4 mb-16">{description}</p>
       </div>
       <Exhibition01 />

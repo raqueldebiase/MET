@@ -7,8 +7,8 @@ export const SubHero: React.FC = () => {
 
   return (
     <section className="pb-2 flex flex-col md:justify-end justify-center items-end md:mt-48 gap-8 md:gap-0">
-      <div className="backdrop-blur-md bg-white/30 rounded-sm p-4 md:p-8 md:w-2/4 mb-4">
-        <h2 className="text-2xl mb-8">Título da Sessão</h2>
+      <div className="backdrop-blur-md bg-white/30 rounded-sm p-4 md:p-8 md:w-2/4 mb-4 tracking-wider">
+        <h2 className="text-2xl mb-8 ">Título da Sessão</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor
           interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui

@@ -24,22 +24,22 @@ export const Exhibition02: React.FC = () => {
       md:bg-cover 
       bg-top
       bg-[20%_50%]
-      
-"
+      "
+      aria-labelledby="exhibition-title"
     >
       {/* Container do conteúdo com largura responsiva */}
-      <div className="w-full md:w-1/3 backdrop-blur-md bg-white/30 p-3 flex flex-col gap-4 rounded-lg shadow-md">
+      <div className="w-full md:w-1/3 backdrop-blur-md bg-white/30 p-6 flex flex-col gap-4 rounded-lg shadow-md">
         {/* Informações da exposição */}
-        <div className="info-expo mb-4 md:mb-8">
-          <h2 id="exhibition-title" className="text-2xl md:text-4xl mb-2 font-light tracking-wider">Cover Letters</h2>
-          <p className="text-gray-900 text-sm md:text-lg md:mb-8">
+        <div className="info-expo mb-4 ">
+          <h2 id="exhibition-title" className="text-2xl md:text-4xl mb-2 tracking-wider">Cover Letters</h2>
+          <p className="text-gray-900 text-sm md:text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. 
             Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque.
           </p>
         </div>
         {/* Botão da Exposição */}
         <div className="flex justify-end ">
-          <ButtonGoToExpo href="/exhibitions/expo1" />
+          <ButtonGoToExpo href="/exhibitions/expo2" />
         </div>
       </div>
 

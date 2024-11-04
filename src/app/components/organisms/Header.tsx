@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="absolute top-0 md:left-0 right-0 z-50 p-8 bg-transparent">
+    <header className="absolute top-0 md:left-0 right-0 z-50 p-4 md:p-8 bg-transparent">
       <div className="">
         {isMobile ? <Menu /> : <NavHeader />}
       </div>

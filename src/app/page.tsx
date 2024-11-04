@@ -63,7 +63,7 @@ export default function Page() {
       >
 
 
-        <div className="flex flex-wrap items-end p-8">
+        <div className="flex flex-wrap items-end p-4 md:p-8">
           <Hero onButtonClick={() => { throw new Error('Function not implemented.'); }} imageUrl={''} />
           <SubHero />
         </div>
