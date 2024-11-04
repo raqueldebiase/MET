@@ -38,7 +38,7 @@ export const ArtCard: React.FC<ArtCardProps> = ({ artwork, showImage = true }) =
       />
       )}
       <div className="py-4">
-        <h3 className="text-xl font-extralight w-2/3">{title}</h3>
+        <h3 className="text-lg mb:text-xl font-extralight md:w-2/3">{title}</h3>
         {artistDisplayName && <p className="text-md text-gray-400">{artistDisplayName}</p>}
 
         {showDetails && (
