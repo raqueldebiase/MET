@@ -11,8 +11,8 @@ const Expo1Page = () => {
     <section>
       <div className="relative h-screen bg-expo-1 bg-[10%_50%] bg-cover bg-no-repeat bg-top">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/30"></div>
-        <div className="relative h-full z-10 p-4 md:p-24 flex items-end md:items-center justify-end text-gray-100 ">
-          <div className="max-w-lg text-left md:text-right backdrop-blur-md bg-white/20 rounded-sm p-6 md:p-8">
+        <div className="relative h-full z-10 md:p-24 flex items-end md:items-center justify-end text-gray-100 ">
+          <div className="max-w-lg text-left md:text-right backdrop-blur-md bg-white/20 rounded-sm p-4 md:p-8">
             <h1 className="text-2xl md:text-4xl font-bold">{exhibition.title}</h1>
             <p className="mt-4">{exhibition.description}</p>
           </div>
@@ -21,7 +21,7 @@ const Expo1Page = () => {
 
       <div className="intro container mx-auto pt-16 md:py-24 md:grid md:grid-cols-2 px-4 gap-24">
         <div className="intro-txt mb-8 ">
-          <h2 className="text-3xl font-bold mb-8">Introduction</h2>
+          <h2 className="text-3xl md:font-bold mb-8">Introduction</h2>
           <p className="mb-8 ">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper.
           </p>

@@ -35,6 +35,15 @@ const CapitalLetters: React.FC = () => {
     autoplaySpeed: 6000,
     pauseOnHover: true,
     swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 767, // Para telas com largura menor que 767px (mobile)
+        settings: {
+          slidesToShow: 1, // Exibe apenas 1 slide por vez
+          swipe: true, // Habilita swipe para mobile
+        },
+      },
+    ],
   };
 
   const handleCardClick = (art: Artwork) => {
@@ -79,7 +88,7 @@ const CapitalLetters: React.FC = () => {
     });
 
     return (
-      <div className="mx-auto pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
+      <div className="mx-auto md:pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
         {loading && (
           <div className="flex justify-center items-center h-64">
             <LoadingSpinner />

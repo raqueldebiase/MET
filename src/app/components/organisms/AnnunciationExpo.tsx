@@ -93,7 +93,7 @@ const AnnunciationExpo: React.FC = () => {
   });
 
   return (
-    <div className="mx-auto pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
+    <div className="mx-auto md:pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
       {loading && (
         <div className="flex justify-center items-center h-64">
           <LoadingSpinner />

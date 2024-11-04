@@ -3,7 +3,7 @@ import React from 'react';
 
 interface ButtonDetailsProps {
   onClick: () => void;
-  label?: string; // Adiciona uma prop label para o texto do botão
+  label?: string; 
 }
 
 export const ButtonDetails: React.FC<ButtonDetailsProps> = ({ onClick, label }) => {
