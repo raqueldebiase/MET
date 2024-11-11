@@ -2,9 +2,9 @@ import AnnunciationExpo from "@/app/components/organisms/AnnunciationExpo";
 
 const Expo1Page = () => {
   const exhibition = {
-    title: 'The Annunciations',
+    title: 'Heavenly Heralds',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor interdum ullamcorper. Phasellus mattis, nulla et ultricies accumsan, dui quam blandit metus, sed lobortis diam orci nec neque.',
+      'The Annunciation in Renaissance and Medieval Art.',
   };
 
   return (
@@ -14,7 +14,7 @@ const Expo1Page = () => {
         <div className="relative h-full z-10 md:p-24 flex items-end md:items-center justify-end text-gray-100 ">
           <div className="max-w-lg text-left md:text-right backdrop-blur-md bg-white/20 rounded-sm p-4 md:p-8">
             <h1 className="text-2xl md:text-4xl font-bold">{exhibition.title}</h1>
-            <p className="mt-4">{exhibition.description}</p>
+            <p className="text-xl mt-4">{exhibition.description}</p>
           </div>
         </div>
       </div>

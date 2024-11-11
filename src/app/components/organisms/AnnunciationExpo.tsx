@@ -40,10 +40,10 @@ const AnnunciationExpo: React.FC = () => {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 767, // Para telas com largura menor que 767px (mobile)
+        breakpoint: 767, 
         settings: {
-          slidesToShow: 1, // Exibe apenas 1 slide por vez
-          swipe: true, // Habilita swipe para mobile
+          slidesToShow: 1, 
+          swipe: true, 
         },
       },
     ],
@@ -54,7 +54,7 @@ const AnnunciationExpo: React.FC = () => {
     setSelectedArtwork(art);
   };
 
-  // Monitora quando o selectedArtwork é atualizado e rola até a seção de detalhes
+  
   useEffect(() => {
     if (selectedArtwork && detailsRef.current) {
       detailsRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -79,7 +79,7 @@ const AnnunciationExpo: React.FC = () => {
     sliderRef.current?.slickPrev();
   };
 
-  // Função para extrair o ano de objectDate (exemplo: de '1500-1550' pegamos '1500')
+  
   const extractYear = (dateStr: string) => {
     const yearMatch = dateStr.match(/\d{4}/); // Encontra o primeiro grupo de 4 dígitos
     return yearMatch ? parseInt(yearMatch[0], 10) : null;
@@ -93,7 +93,7 @@ const AnnunciationExpo: React.FC = () => {
   });
 
   return (
-    <div className="mx-auto md:pt-24" style={{ scrollBehavior: 'smooth' }}> {/* Adicionando a propriedade de scroll suave */}
+    <div className="mx-auto md:pt-24" style={{ scrollBehavior: 'smooth' }}> 
       {loading && (
         <div className="flex justify-center items-center h-64">
           <LoadingSpinner />
@@ -108,14 +108,14 @@ const AnnunciationExpo: React.FC = () => {
             <Slider ref={sliderRef} {...settings}>
               {sortedData.map((art) => (
                 <div key={art.id} className="relative">
-                  {/* Componente do Card */}
+                  
                   <ExpoCard
                     artwork={art}
                     onClick={() => handleCardClick(art)}
                   />
-                  {/* Botão Expandir dentro do Card */}
+                  
                   <div className="absolute bottom-36 right-10">
-                    {/* Aqui você pode adicionar um botão para expandir, se necessário */}
+                  
                   </div>
                 </div>
               ))}
@@ -127,7 +127,7 @@ const AnnunciationExpo: React.FC = () => {
           </div>
 
           {selectedArtwork && (
-            <div ref={detailsRef}> {/* Adiciona a referência aqui */}
+            <div ref={detailsRef}> 
               <ArtworkDetails artwork={selectedArtwork} onBack={handleBackToSlider} />
             </div>
           )}
